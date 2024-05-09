@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $product = Product::orderBy('created_at', 'DESC')->get();
 
-        return view('home', compact('product'));
+        return view('userhome', compact('product'));
     }
 
     public function adminHome()
