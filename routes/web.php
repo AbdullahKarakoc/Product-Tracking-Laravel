@@ -22,6 +22,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/about', [UserController::class, 'about'])->name('about');
+Route::get('/contact', [UserController::class, 'contact'])->name('contact');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('register', 'register')->name('register');
