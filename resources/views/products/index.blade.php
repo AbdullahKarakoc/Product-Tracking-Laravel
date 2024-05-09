@@ -16,12 +16,13 @@
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">#</th>
-                <th scope="col" class="px-6 py-3">Title</th>
-                <th scope="col" class="px-6 py-3">Price</th>
-                <th scope="col" class="px-6 py-3">Product Code</th>
-                <th scope="col" class="px-6 py-3">Description</th>
-                <th scope="col" class="px-6 py-3">Action</th>
+                <th scope="col" class="px-0 py-3">#</th>
+                <th scope="col" class="px-0 py-3">Title</th>
+                <th scope="col" class="px-0 py-3">Price</th>
+                <th scope="col" class="px-0 py-3">Product Code</th>
+                <th scope="col" class="px-0 py-3">Amount</th>
+                <th scope="col" class="px-0 py-3">Description</th>
+                <th scope="col" class="px-0 py-3">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -39,6 +40,9 @@
                 </td>
                 <td>
                     {{ $rs->product_code }}
+                </td>
+                <td>
+                    {{ $rs->amount }}
                 </td>
                 <td>
                     {{ $rs->description }}
