@@ -45,6 +45,7 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
 
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
+    Route::post('/admin/profile/update', [AdminController::class, 'updateProfile'])->name('admin.profile.update');
 
     Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
     Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
