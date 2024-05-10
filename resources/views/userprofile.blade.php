@@ -11,7 +11,8 @@
     </div>
 </header>
 <hr />
-<form method="POST" enctype="multipart/form-data" action="">
+<form method="POST" enctype="multipart/form-data" action="{{ route('profile.update') }}">
+    @csrf
     <div>
         <label class="label">
             <span class="text-base label-text">Name</span>
