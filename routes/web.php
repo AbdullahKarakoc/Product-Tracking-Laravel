@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MesajController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 
 Route::get('/about', [UserController::class, 'about'])->name('about');
 Route::get('/contact', [UserController::class, 'contact'])->name('contact');
+Route::get('/showMessages', [UserController::class, 'showMessages'])->name('showMessages');
 
 Route::controller(AuthController::class)->group(function () {
     Route::get('register', 'register')->name('register');
@@ -34,14 +36,16 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('logout', 'logout')->middleware('auth')->name('logout');
 });
 
-//Normal Users Routes List
+// Normal Users Routes List
 Route::middleware(['auth', 'user-access:user'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/profile', [UserController::class, 'userprofile'])->name('profile');
     Route::post('/profile/update', [UserController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/userhome', [HomeController::class, 'userHome'])->name('userhome');
+
 });
 
-//Admin Routes List
+// Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
 
@@ -55,4 +59,6 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
     Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
     Route::delete('/admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin/products/destroy');
+    Route::post('/admin/mesaj', [MesajController::class, 'mesajGonder'])->name('admin/mesaj');
+
 });

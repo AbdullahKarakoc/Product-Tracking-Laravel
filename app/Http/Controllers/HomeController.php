@@ -23,4 +23,11 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
+
+    public function userHome()
+    {
+        $product = Product::orderBy('created_at', 'DESC')->get();
+
+        return view('userhome', compact('product'));
+    }
 }

@@ -27,6 +27,8 @@ class AdminController extends Controller
         // Kullanıcı adı ve e-posta adresini güncelle
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
         $user->save();
 
         // Kullanıcıyı profil sayfasına yönlendir
